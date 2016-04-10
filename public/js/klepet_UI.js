@@ -98,6 +98,16 @@ $(document).ready(function() {
     }
   });
   
+  socket.on('dregljaj', function (dregljaj) {
+    if (dregljaj.dregljaj) {
+      $('#vsebina').jrumble();
+      $('#vsebina').trigger('startRumble');
+      setTimeout(function() {
+        $('#vsebina').trigger('stopRumble');
+      }, 1500);
+    }
+  });
+  
   socket.on('kanali', function(kanali) {
     $('#seznam-kanalov').empty();
 
