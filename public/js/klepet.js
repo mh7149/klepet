@@ -52,11 +52,11 @@ Klepet.prototype.procesirajUkaz = function(ukaz) {
       var vzdevek = besede.join(' ');
       if (vzdevek) {
         this.socket.emit('dregljaj', {vzdevek: vzdevek});
-        sporocilo = 'Dregljaj za ' + vzdevek;
+        sporocilo = {besedilo: 'Dregljaj za ' + vzdevek, slike: null, youtubePosnetki: null};
       } else {
-        sporocilo = 'Neznan ukaz';
+        sporocilo = {besedilo: 'Neznan ukaz', slike: null, youtubePosnetki: null};
       }
-    break;
+      break;
     default:
       sporocilo = {besedilo: 'Neznan ukaz.', slike: null, youtubePosnetki: null};
       break;
